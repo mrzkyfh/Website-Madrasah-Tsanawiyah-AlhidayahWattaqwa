@@ -63,7 +63,7 @@
     <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
       <a href="#about" class="py-2 hover:text-indigo-600">Profil</a>
       <a href="#skills" class="py-2 hover:text-indigo-600">Alamat</a>
-      <a href="#projects" class="py-2 hover:text-indigo-600">Proyek</a>
+      <a href="#projects" class="py-2 hover:text-indigo-600">Pendaftaran</a>
       <a href="#achievements" class="py-2 hover:text-indigo-600">Prestasi</a>
       <a href="#contact" class="mt-1 inline-flex justify-center px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">
         Kontak
@@ -105,52 +105,107 @@
 
 
   <!-- Hero -->
-  <section class="relative overflow-hidden bg-gradient-to-br from-indigo-100 via-white to-cyan-100">
-    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-          MTs Al Hidayah Wattaqwa
-        </h1>
-        <p class="mt-6 text-gray-600">
-          
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#projects" class="text-sm px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">
-            Lihat Proyek
-          </a>
+  <!-- Hero -->
+<section class="relative bg-cover bg-center bg-no-repeat min-h-[80vh] flex items-center justify-center"
+  style="background-image: url('images/bg-hero.jpg');">
+
+  <!-- Overlay (biar teks terbaca) -->
+  <div class="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+
+  <!-- Isi konten -->
+  <div class="relative z-10 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight drop-shadow-md">
+        MTs Al Hidayah Wattaqwa
+      </h1>
+      <p class="mt-6 text-gray-700 text-base md:text-lg leading-relaxed">
+        
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#projects" class="text-sm px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition">
+          Profile
+        </a>
+      </div>
+
+    </div>
+
+    <div class="flex justify-end">
+        <img src="images/logo.jpg" alt="Logo Sekolah"
+             class="w-56 h-56 md:w-72 md:h-72">
+      </div>
+
+  </div>
+</section>
+
+
+<!-- Tentang Sekolah -->
+<section id="about" class="max-w-7xl mx-auto px-4 py-14">
+  <!-- Judul + garis hijau kecil -->
+  <div class="text-center mb-10">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F2B5C]">Tentang Sekolah</h2>
+    <div class="mx-auto mt-3 h-1 w-24 rounded bg-green-500"></div>
+  </div>
+
+  <!-- 3 Kartu -->
+  <div class="grid gap-8 md:grid-cols-3">
+    <!-- KARTU 1: Alumni -->
+    <article class="rounded-2xl bg-[#0F2B5C] p-6 md:p-7">
+      <div class="relative mx-auto h-64 w-64 md:h-72 md:w-72">
+        <!-- ring terluar -->
+        <div class="absolute inset-0 rounded-full bg-[#122F66]"></div>
+        <!-- ring tengah -->
+        <div class="absolute inset-6 rounded-full bg-[#1B3C8E]"></div>
+        <!-- area foto (dengan ring tipis) -->
+        <div class="absolute inset-14 rounded-full bg-white p-2">
+          <div class="h-full w-full overflow-hidden rounded-full">
+            <img src="images/alumni.jpg" alt="Alumni"
+                 class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]">
+          </div>
         </div>
-        <p class="mt-4 text-xs text-gray-500">
-          📍 RT.002/RW.004, Pejuang, Kecamatan Medan Satria, Kota Bks, Jawa Barat 17131
-        </p>
       </div>
+      <h3 class="mt-6 text-center text-3xl font-extrabold text-[#0F2B5C] bg-white inline-block px-4 py-1 rounded">
+        Alumni
+      </h3>
+    </article>
 
-      <div class="flex justify-center">
-        <img src="images/logo.jpg" alt="Foto Profil"
-             class="w-56 h-56 md:w-72 md:h-72 object-cover rounded-3xl shadow-lg ring-1 ring-gray-200">
+<!-- KARTU 2: Pengajar -->
+<a href="tentang_kami.html" class="block group rounded-2xl bg-[#0F2B5C] p-6 md:p-7 hover:shadow-lg transition">
+  <div class="relative mx-auto h-64 w-64 md:h-72 md:w-72">
+    <div class="absolute inset-0 rounded-full bg-[#122F66]"></div>
+    <div class="absolute inset-6 rounded-full bg-[#1B3C8E]"></div>
+    <div class="absolute inset-14 rounded-full bg-white p-2">
+      <div class="h-full w-full overflow-hidden rounded-full">
+        <img src="images/pengajar.jpg" alt="Pengajar"
+             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]">
       </div>
     </div>
-  </section>
+  </div>
+  <h3 class="mt-6 text-center text-3xl font-extrabold text-[#0F2B5C] bg-white inline-block px-4 py-1 rounded">
+    Pengajar
+  </h3>
+</a>
 
-  <!-- About -->
-  <section id="about" class="max-w-6xl mx-auto px-4 py-12 md:py-16">
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="md:col-span-2">
-        <h2 class="text-2xl font-bold text-gray-900">Profile</h2>
-        <p class="mt-4 text-gray-700">
-          Saya siswa yang fokus pada pengembangan web modern. Terbiasa membuat CRUD, integrasi API,
-          autentikasi, dan deployment sederhana. Saya percaya belajar lewat proyek nyata.
-        </p>
+
+    <!-- KARTU 3: Prestasi -->
+    <article class="rounded-2xl bg-[#0F2B5C] p-6 md:p-7">
+      <div class="relative mx-auto h-64 w-64 md:h-72 md:w-72">
+        <div class="absolute inset-0 rounded-full bg-[#122F66]"></div>
+        <div class="absolute inset-6 rounded-full bg-[#1B3C8E]"></div>
+        <div class="absolute inset-14 rounded-full bg-white p-2">
+          <div class="h-full w-full overflow-hidden rounded-full">
+            <img src="images/prestasi.jpg" alt="Prestasi"
+                 class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]">
+          </div>
+        </div>
       </div>
-      <div class="bg-white rounded-2xl shadow border border-gray-200 p-5">
-        <h3 class="font-semibold text-gray-900">Info Singkat</h3>
-        <ul class="mt-3 space-y-2 text-sm text-gray-700">
-          <li>📧 <a class="underline text-indigo-600 hover:text-indigo-800" href="mailto:mtsaw@sekolah.sch.id">mtsaw@sekolah.sch.id</a></li>
-          <li>🏫 Program Keahlian: Rekayasa Perangkat Lunak</li>
-          <li>🎯 Minat: Backend & API</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+      <h3 class="mt-6 text-center text-3xl font-extrabold text-[#0F2B5C] bg-white inline-block px-4 py-1 rounded">
+        Prestasi
+      </h3>
+    </article>
+  </div>
+</section>
+
 
   <!-- Skills -->
   <section id="skills" class="max-w-6xl mx-auto px-4 py-12 md:py-16 bg-indigo-50 border-y border-gray-200">
