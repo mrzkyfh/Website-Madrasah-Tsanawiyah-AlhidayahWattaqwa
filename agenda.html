@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Guru - MTs Al Hidayah Wattaqwa</title>
+  <meta name="google-site-verification" content="GRHpCamPd-u16BuvM47NIDq_V-a0hgnWaJbNEi5s1oo" />
+  <title>MTs Al Hidayah Wattaqwa</title>
+  <meta name="description" content="Portfolio siswa programmer di sekolah.">
   <link rel="icon" type="image/png" href="images/logo.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <!-- Font Awesome (CDNJS) -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-
+<body class="bg-gray-50 text-gray-800 selection:bg-indigo-200">
+  <!-- Navbar -->
+<!-- Responsive Navbar -->
 <!-- Responsive Navbar -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -88,22 +96,82 @@
 
 </header>
 
+  <!-- Toggle mobile menu -->
+<script>
+  const btn = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  const iconOpen  = document.getElementById('iconOpen');
+  const iconClose = document.getElementById('iconClose');
+
+  function closeMenu() {
+    menu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  function openMenu() {
+    menu.classList.remove('hidden');
+    iconOpen.classList.add('hidden');
+    iconClose.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Tutup saat klik link menu
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  // Tutup saat tekan ESC
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+</script>
 
 
+  <!-- Hero -->
+<main id="about" class="max-w-5xl mx-auto px-4 py-12">
+  <div class="text-center mb-10">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-[#0F2B5C]">Agenda Kegiatan</h1>
+    <div class="mx-auto mt-3 h-1 w-24 rounded bg-green-500"></div>
+  </div>
 
-  <script>
-    // Toggle mobile menu (sama seperti index)
-    const btn = document.getElementById('navToggle');
-    const menu = document.getElementById('mobileMenu');
-    const iconOpen  = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
+  <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+    <table class="min-w-full text-sm text-left text-gray-700">
+      <thead class="bg-gray-100 text-xs uppercase tracking-wide text-gray-500">
+        <tr>
+          <th class="px-4 py-3">Tanggal</th>
+          <th class="px-4 py-3">Kegiatan</th>
+          <th class="px-4 py-3">Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t">
+          <td class="px-4 py-3">05 Jan 20xx</td>
+          <td class="px-4 py-3">Rapat Awal Semester</td>
+          <td class="px-4 py-3">Rapat guru & staf, persiapan pembelajaran semester genap.</td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-4 py-3">14 Feb 20xx</td>
+          <td class="px-4 py-3">Class Meeting</td>
+          <td class="px-4 py-3">Lomba antar kelas setelah PAS.</td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-4 py-3">20 Mar 20xx</td>
+          <td class="px-4 py-3">Pesantren Kilat</td>
+          <td class="px-4 py-3">Kegiatan keagamaan di bulan Ramadhan.</td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-4 py-3">10 Jun 20xx</td>
+          <td class="px-4 py-3">Penilaian Akhir Tahun</td>
+          <td class="px-4 py-3">Ujian semua mata pelajaran.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
 
-    function closeMenu(){ menu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
-    function openMenu(){ menu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
-    btn?.addEventListener('click',()=>{ (btn.getAttribute('aria-expanded')==='true')?closeMenu():openMenu(); });
-    menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeMenu(); });
-  </script>
+
+<!-- Footer -->
 <footer class="bg-gradient-to-br from-indigo-100 via-white to-cyan-100 text-gray-800 pt-12 pb-6 border-t border-gray-300">
   <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
 
@@ -129,7 +197,7 @@
           <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
           <a href="https://www.instagram.com/mts_alhidayahwattaqwa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
           target="_blank"
-          rel="noopener noreferrer">mtsalhidayah</a>
+          rel="noopener noreferrer">Madrasah Tsanawiyah AW</a>
         </li>
       </ul>
     </div>
@@ -161,3 +229,4 @@
 </script>
 </body>
 </html>
+

@@ -14,53 +14,79 @@
 
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- ================= HEADER (SAMA) ================= -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <!-- Brand -->
-      <a href="index.html" class="flex items-center gap-2">
-        <img src="images/logo.jpg" alt="Logo" class="w-8 h-8 rounded">
-        <span class="font-semibold text-indigo-700 sm:hidden">MTs AlhidayahWattaqwa</span>
-        <span class="font-semibold text-indigo-700 hidden sm:inline">
-          Madrasah Tsanawiyah AlhidayahWattaqwa
-        </span>
-      </a>
+ <!-- Responsive Navbar -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Brand -->
+    <a href="#" class="flex items-center gap-2">
+      <img src="images/logo.jpg" alt="Logo" class="w-8 h-8 rounded">
+      <!-- Nama pendek untuk mobile, nama panjang untuk >= md -->
+      <span class="font-semibold text-indigo-700 sm:hidden">MTs AlhidayahWattaqwa</span>
+      <span class="font-semibold text-indigo-700 hidden sm:inline">
+        Madrasah Tsanawiyah AlhidayahWattaqwa
+      </span>
+    </a>
 
-      <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="index.html#about" class="hover:text-indigo-600">Profil</a>
-        <a href="index.html#skills" class="hover:text-indigo-600">Alamat</a>
-        <a href="index.html#projects" class="hover:text-indigo-600">Proyek</a>
-        <a href="index.html#achievements" class="hover:text-indigo-600">Prestasi</a>
-        <a href="index.html#contact" class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">Kontak</a>
-      </nav>
+    <!-- Desktop nav -->
+   <nav class="hidden md:flex items-center gap-6 text-sm">
+  <a href="index.html" class="hover:text-indigo-600">Beranda</a>
+  <a href="tentang_kami.html" class="hover:text-indigo-600">Profil</a>
+  <a href="guru.html" class="hover:text-indigo-600">Guru</a>
+  <a href="alumni.html" class="hover:text-indigo-600">Alumni</a>
+  <a href="Prestasi.html" class="hover:text-indigo-600">Prestasi</a>
+  <a href="sarpras.html" class="hover:text-indigo-600">Sarpras</a>
+  <a href="ekstrakurikuler.html" class="hover:text-indigo-600">Ekstrakurikuler</a>
+  <a href="berita.html" class="hover:text-indigo-600">Berita</a>
+  <a href="agenda.html" class="hover:text-indigo-600">Agenda</a>
+  <a href="ppdb.html" class="hover:text-indigo-600">PPDB</a>
+  <a href="galeri.html" class="hover:text-indigo-600">Galeri</a>
 
-      <!-- Hamburger (mobile) -->
-      <button id="navToggle"
-        class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-300 hover:bg-gray-100"
-        aria-label="Toggle menu" aria-expanded="false">
-        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-    </div>
+  <a href="#contact"
+    class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">
+    Kontak
+  </a>
+</nav>
 
-    <!-- Mobile menu panel -->
-    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-      <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
-        <a href="index.html#about" class="py-2 hover:text-indigo-600">Profil</a>
-        <a href="index.html#skills" class="py-2 hover:text-indigo-600">Alamat</a>
-        <a href="index.html#projects" class="py-2 hover:text-indigo-600">Proyek</a>
-        <a href="index.html#achievements" class="py-2 hover:text-indigo-600">Prestasi</a>
-        <a href="index.html#contact" class="mt-1 inline-flex justify-center px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">
-          Kontak
-        </a>
-      </div>
-    </div>
-  </header>
+
+    <!-- Hamburger (mobile) -->
+    <button id="navToggle"
+      class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-300 hover:bg-gray-100"
+      aria-label="Toggle menu" aria-expanded="false">
+      <!-- icon -->
+      <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu panel -->
+<div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+
+    <a href="index.html" class="py-2 hover:text-indigo-600">Beranda</a>
+    <a href="tentang_kami.html" class="py-2 hover:text-indigo-600">Profil</a>
+    <a href="guru.html" class="py-2 hover:text-indigo-600">Guru</a>
+    <a href="alumni.html" class="py-2 hover:text-indigo-600">Alumni</a>
+    <a href="Prestasi.html" class="py-2 hover:text-indigo-600">Prestasi</a>
+    <a href="sarpras.html" class="py-2 hover:text-indigo-600">Sarpras</a>
+    <a href="ekstrakurikuler.html" class="py-2 hover:text-indigo-600">Ekstrakurikuler</a>
+    <a href="berita.html" class="py-2 hover:text-indigo-600">Berita</a>
+    <a href="agenda.html" class="py-2 hover:text-indigo-600">Agenda</a>
+    <a href="ppdb.html" class="py-2 hover:text-indigo-600">PPDB</a>
+    <a href="galeri.html" class="py-2 hover:text-indigo-600">Galeri</a>
+
+    <a href="#contact"
+      class="mt-1 inline-flex justify-center px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">
+      Kontak
+    </a>
+
+  </div>
+</div>
+
+</header>
 
   <script>
     // Toggle mobile menu (sama seperti index)
@@ -84,92 +110,61 @@
     </div>
   </section>
 
-  <!-- ================= GRID GURU ================= -->
-  <section class="max-w-7xl mx-auto px-6 py-12">
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Kartu Guru (duplikasi sesuai kebutuhan) -->
-      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition">
-        <img src="guru/kepsek.jpg" alt="Guru 1" class="mx-auto w-40 h-40 object-cover">
-        <h3 class="mt-4 text-center font-semibold text-lg text-[#0F2B5C]">Bapak Maftuhin S.Pd</h3>
-        <p class="text-center text-sm text-gray-500">Kepala Madrasah</p>
-      </div>
 
-      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition">
-        <img src="guru/pakmoe.jpg" alt="Guru 2" class="mx-auto w-40 h-40 object-cover">
-        <h3 class="mt-4 text-center font-semibold text-lg text-[#0F2B5C]">Bapak Muhammad S.Pd.I</h3>
-        <p class="text-center text-sm text-gray-500">Wakil Bidang Kesiswaan</p>
-      </div>
+<footer class="bg-gradient-to-br from-indigo-100 via-white to-cyan-100 text-gray-800 pt-12 pb-6 border-t border-gray-300">
+  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
 
-
-      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition">
-        <img src="guru/pakamir.jpg" alt="Guru 2" class="mx-auto w-40 h-40 object-cover">
-        <h3 class="mt-4 text-center font-semibold text-lg text-[#0F2B5C]">Bapak Amiruddin S.Ag</h3>
-        <p class="text-center text-sm text-gray-500">Guru Aqidah Akhlak</p>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition">
-        <img src="guru/pakmoe.jpg" alt="Guru 2" class="mx-auto w-40 h-40 object-cover">
-        <h3 class="mt-4 text-center font-semibold text-lg text-[#0F2B5C]">Bapak Muhammad S.Pd.I</h3>
-        <p class="text-center text-sm text-gray-500">Wakil Bidang Kesiswaan</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FOOTER (SAMA) ================= -->
-  <footer class="bg-gradient-to-br from-indigo-100 via-white to-cyan-100 text-gray-800 pt-12 pb-6 border-t border-gray-300">
-    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
-
-      <!-- PUSAT INFORMASI -->
-      <div>
-        <h3 class="font-bold text-gray-900 text-lg mb-3">PUSAT INFORMASI</h3>
-        <img src="images/logo.jpg" alt="Logo Sekolah" class="w-16 h-16 mb-3 rounded-full">
-        <p class="text-sm flex items-start gap-2"><span>📍</span>RT.002/RW.004, Pejuang, Medan Satria, Kota Bekasi, Jawa Barat 17131</p>
-        <p class="mt-2 text-sm flex items-center gap-2"><span>📞</span>0859-5287-4984</p>
-        <p class="mt-1 text-sm flex items-center gap-2"><span>📧</span>
-          <a href="mailto:mtsaw@sekolah.sch.id" class="hover:text-indigo-700 font-medium">mtsaw@sekolah.sch.id</a>
-        </p>
-      </div>
-
-      <!-- INSTAGRAM -->
-      <div>
-        <h3 class="font-bold text-gray-900 text-lg mb-3 flex items-center gap-2">
-          <i class="fab fa-instagram text-pink-600 text-xl"></i> Instagram
-        </h3>
-        <ul class="space-y-1 text-sm">
-          <li>@mtsalhidayahwattaqwa</li>
-          <li>@osisalhidayah</li>
-          <li>@rpl.alhidayah</li>
-        </ul>
-      </div>
-
-      <!-- YOUTUBE -->
-      <div>
-        <h3 class="font-bold text-gray-900 text-lg mb-3 flex items-center gap-2">
-          <i class="fab fa-youtube text-red-600 text-xl"></i> YouTube
-        </h3>
-        <ul class="space-y-1 text-sm">
-          <li>MTs Al Hidayah Wattaqwa Official</li>
-          <li>RPL Al Hidayah Channel</li>
-        </ul>
-      </div>
-
-      <!-- TIKTOK -->
-      <div>
-        <h3 class="font-bold text-gray-900 text-lg mb-3 flex items-center gap-2">
-          <i class="fab fa-tiktok text-gray-800 text-xl"></i> TikTok
-        </h3>
-        <ul class="space-y-1 text-sm">
-          <li>@mtsalhidayah.official</li>
-          <li>@rpl.alhidayah</li>
-        </ul>
-      </div>
+    <!-- PUSAT INFORMASI -->
+    <div>
+      <h3 class="font-bold text-gray-900 text-lg mb-3">PUSAT INFORMASI</h3>
+      <img src="images/logo.jpg" alt="Logo Sekolah" class="w-16 h-16 mb-3 rounded-full">
+      <p class="text-sm flex items-start gap-2"><span>📍</span>RT.002/RW.004, Pejuang, Medan Satria, Kota Bekasi, Jawa Barat 17131</p>
+      <p class="mt-2 text-sm flex items-center gap-2"><span>📞</span>0859-5287-4984</p>
+      <p class="mt-1 text-sm flex items-center gap-2"><span>📧</span>
+        <a href="mailto:mtsaw@sekolah.sch.id" class="hover:text-indigo-700 font-medium">mtsaw@sekolah.sch.id</a>
+      </p>
     </div>
 
-    <div class="mt-10 border-t border-gray-300 pt-4 text-center text-xs text-gray-600">
-      © <span id="year"></span> MTs Al Hidayah Wattaqwa — All Rights Reserved.
+    <!-- INSTAGRAM -->
+    <div>
+      <h3 class="font-bold text-gray-900 text-lg mb-3 flex items-center gap-2">
+        <i class="fa-brands fa-instagram text-pink-600 text-2xl"></i>
+        Instagram
+      </h3>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-center gap-3">
+          <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
+          <a href="https://www.instagram.com/mts_alhidayahwattaqwa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"
+          rel="noopener noreferrer">mtsalhidayah</a>
+        </li>
+      </ul>
     </div>
-  </footer>
 
-  <script> document.getElementById('year').textContent = new Date().getFullYear(); </script>
+    <!-- TIKTOK -->
+    <div>
+      <h3 class="font-bold text-gray-900 text-lg mb-3 flex items-center gap-2">
+        <i class="fa-brands fa-tiktok text-black text-2xl"></i>
+        TikTok
+      </h3>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-center gap-3">
+          <i class="fa-brands fa-tiktok text-black text-lg"></i>
+          <a href="https://www.tiktok.com/@mts._alhidayahwattaqwa24?is_from_webapp=1&sender_device=pc" 
+          target="_blank"
+          rel="noopener noreferrer">mts._alhidayahwattaqwa24</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-10 border-t border-gray-300 pt-4 text-center text-xs text-gray-600">
+    © <span id="year"></span> MTs Al Hidayah Wattaqwa — All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

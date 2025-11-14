@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Guru - MTs Al Hidayah Wattaqwa</title>
+  <meta name="google-site-verification" content="GRHpCamPd-u16BuvM47NIDq_V-a0hgnWaJbNEi5s1oo" />
+  <title>MTs Al Hidayah Wattaqwa</title>
+  <meta name="description" content="Portfolio siswa programmer di sekolah.">
   <link rel="icon" type="image/png" href="images/logo.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <!-- Font Awesome (CDNJS) -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-
+<body class="bg-gray-50 text-gray-800 selection:bg-indigo-200">
+  <!-- Navbar -->
+<!-- Responsive Navbar -->
 <!-- Responsive Navbar -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -88,22 +96,107 @@
 
 </header>
 
+  <!-- Toggle mobile menu -->
+<script>
+  const btn = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  const iconOpen  = document.getElementById('iconOpen');
+  const iconClose = document.getElementById('iconClose');
+
+  function closeMenu() {
+    menu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  function openMenu() {
+    menu.classList.remove('hidden');
+    iconOpen.classList.add('hidden');
+    iconClose.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Tutup saat klik link menu
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  // Tutup saat tekan ESC
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+</script>
 
 
+  <!-- Hero -->
+<main id="about" class="max-w-7xl mx-auto px-4 py-12">
+  <div class="text-center mb-10">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-[#0F2B5C]">Berita, Kegiatan & Agenda</h1>
+    <div class="mx-auto mt-3 h-1 w-24 rounded bg-green-500"></div>
+  </div>
 
-  <script>
-    // Toggle mobile menu (sama seperti index)
-    const btn = document.getElementById('navToggle');
-    const menu = document.getElementById('mobileMenu');
-    const iconOpen  = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
+  <div class="grid gap-6 md:grid-cols-3">
+    <!-- Kolom Berita -->
+    <section class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+      <header class="bg-[#0F2B5C] text-white text-center py-3 font-semibold text-lg">
+        Berita
+      </header>
+      <div class="p-4">
+        <img src="images/bg-hero.jpg" alt="Berita" class="w-full h-64 object-cover rounded-lg mb-4">
+        <h2 class="font-semibold text-gray-900 text-sm">
+          SD Global Prima Juara 1 Renang Putri
+        </h2>
+        <p class="mt-2 text-xs text-gray-600 line-clamp-3">
+          Selamat & sukses kepada siswa yang meraih prestasi lomba renang tingkat kota...
+        </p>
+        <a href="#" class="mt-3 inline-block text-xs text-indigo-600 hover:text-indigo-800">
+          Selengkapnya &raquo;
+        </a>
+      </div>
+    </section>
 
-    function closeMenu(){ menu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
-    function openMenu(){ menu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
-    btn?.addEventListener('click',()=>{ (btn.getAttribute('aria-expanded')==='true')?closeMenu():openMenu(); });
-    menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeMenu(); });
-  </script>
+    <!-- Kolom Kegiatan -->
+    <section class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+      <header class="bg-[#0F2B5C] text-white text-center py-3 font-semibold text-lg">
+        Kegiatan
+      </header>
+      <div class="p-4">
+        <img src="images/bg-hero.jpg" alt="Kegiatan" class="w-full h-64 object-cover rounded-lg mb-4">
+        <h2 class="font-semibold text-gray-900 text-sm">
+          Kegiatan Assesment Sumatif Tengah Semester
+        </h2>
+        <p class="mt-2 text-xs text-gray-600 line-clamp-3">
+          Pelaksanaan asesmen sumatif sebagai evaluasi capaian pembelajaran siswa...
+        </p>
+        <a href="#" class="mt-3 inline-block text-xs text-indigo-600 hover:text-indigo-800">
+          Selengkapnya &raquo;
+        </a>
+      </div>
+    </section>
+
+    <!-- Kolom Agenda -->
+    <section class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+      <header class="bg-[#0F2B5C] text-white text-center py-3 font-semibold text-lg">
+        Agenda
+      </header>
+      <div class="p-4">
+        <img src="images/bg-hero.jpg" alt="Agenda" class="w-full h-64 object-cover rounded-lg mb-4">
+          <h2 class="font-semibold text-gray-900 text-sm">
+            Kegiatan Pelaksanaan ANBK
+          </h2>
+          <p class="mt-2 text-xs text-gray-600 line-clamp-3">
+            Jadwal dan pelaksanaan Asesmen Nasional Berbasis Komputer (ANBK) di madrasah...
+          </p>
+          <a href="#" class="mt-3 inline-block text-xs text-indigo-600 hover:text-indigo-800">
+            Selengkapnya &raquo;
+          </a>
+      </div>
+    </section>
+  </div>
+</main>
+
+
+<!-- Footer -->
 <footer class="bg-gradient-to-br from-indigo-100 via-white to-cyan-100 text-gray-800 pt-12 pb-6 border-t border-gray-300">
   <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
 
@@ -129,7 +222,7 @@
           <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
           <a href="https://www.instagram.com/mts_alhidayahwattaqwa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
           target="_blank"
-          rel="noopener noreferrer">mtsalhidayah</a>
+          rel="noopener noreferrer">Madrasah Tsanawiyah AW</a>
         </li>
       </ul>
     </div>
@@ -161,3 +254,4 @@
 </script>
 </body>
 </html>
+

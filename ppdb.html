@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Guru - MTs Al Hidayah Wattaqwa</title>
+  <meta name="google-site-verification" content="GRHpCamPd-u16BuvM47NIDq_V-a0hgnWaJbNEi5s1oo" />
+  <title>MTs Al Hidayah Wattaqwa</title>
+  <meta name="description" content="Portfolio siswa programmer di sekolah.">
   <link rel="icon" type="image/png" href="images/logo.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <!-- Font Awesome (CDNJS) -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-
+<body class="bg-gray-50 text-gray-800 selection:bg-indigo-200">
+  <!-- Navbar -->
+<!-- Responsive Navbar -->
 <!-- Responsive Navbar -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -88,22 +96,98 @@
 
 </header>
 
+  <!-- Toggle mobile menu -->
+<script>
+  const btn = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  const iconOpen  = document.getElementById('iconOpen');
+  const iconClose = document.getElementById('iconClose');
+
+  function closeMenu() {
+    menu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  function openMenu() {
+    menu.classList.remove('hidden');
+    iconOpen.classList.add('hidden');
+    iconClose.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Tutup saat klik link menu
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  // Tutup saat tekan ESC
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+</script>
 
 
+  <!-- Hero -->
+<main id="about" class="max-w-4xl mx-auto px-4 py-12">
+  <div class="text-center mb-10">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-[#0F2B5C]">PPDB MTs Al Hidayah Wattaqwa</h1>
+    <div class="mx-auto mt-3 h-1 w-24 rounded bg-green-500"></div>
+    <p class="mt-4 text-gray-600">
+      Informasi Penerimaan Peserta Didik Baru (PPDB) tahun ajaran 20xx / 20xx.
+    </p>
+  </div>
 
-  <script>
-    // Toggle mobile menu (sama seperti index)
-    const btn = document.getElementById('navToggle');
-    const menu = document.getElementById('mobileMenu');
-    const iconOpen  = document.getElementById('iconOpen');
-    const iconClose = document.getElementById('iconClose');
+  <!-- Syarat -->
+  <section class="mb-8">
+    <h2 class="text-xl font-bold text-gray-900 mb-3">Syarat Pendaftaran</h2>
+    <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+      <li>Fotokopi ijazah / surat keterangan lulus SD/MI.</li>
+      <li>Fotokopi akta kelahiran & kartu keluarga.</li>
+      <li>Pas foto terbaru ukuran 3x4 (4 lembar).</li>
+      <li>Mengisi formulir pendaftaran.</li>
+    </ul>
+  </section>
 
-    function closeMenu(){ menu.classList.add('hidden'); iconOpen.classList.remove('hidden'); iconClose.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); }
-    function openMenu(){ menu.classList.remove('hidden'); iconOpen.classList.add('hidden'); iconClose.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
-    btn?.addEventListener('click',()=>{ (btn.getAttribute('aria-expanded')==='true')?closeMenu():openMenu(); });
-    menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeMenu(); });
-  </script>
+  <!-- Jadwal -->
+  <section class="mb-8">
+    <h2 class="text-xl font-bold text-gray-900 mb-3">Jadwal PPDB</h2>
+    <div class="bg-white rounded-2xl border border-gray-200 p-4 text-sm text-gray-700">
+      <p>Pendaftaran Online/Offline: 1 Mei – 30 Juni 20xx</p>
+      <p>Seleksi & Wawancara: 5 – 10 Juli 20xx</p>
+      <p>Pengumuman: 15 Juli 20xx</p>
+      <p>Daftar Ulang: 16 – 20 Juli 20xx</p>
+    </div>
+  </section>
+
+  <!-- Form singkat -->
+  <section class="mb-8">
+    <h2 class="text-xl font-bold text-gray-900 mb-3">Formulir Minat Pendaftaran</h2>
+    <form class="bg-white rounded-2xl border border-gray-200 p-5 space-y-4 text-sm">
+      <div>
+        <label class="block mb-1 font-medium">Nama Lengkap Calon Siswa</label>
+        <input type="text" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Isi nama lengkap">
+      </div>
+      <div>
+        <label class="block mb-1 font-medium">Asal Sekolah</label>
+        <input type="text" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+      </div>
+      <div>
+        <label class="block mb-1 font-medium">Nomor HP Orang Tua/Wali</label>
+        <input type="tel" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+      </div>
+      <button type="submit" class="inline-flex items-center px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">
+        Kirim Data
+      </button>
+    </form>
+    <p class="text-xs text-gray-500 mt-2">
+      *Form ini hanya contoh. Untuk pendaftaran resmi, silakan datang ke madrasah atau hubungi panitia PPDB.
+    </p>
+  </section>
+</main>
+
+
+<!-- Footer -->
 <footer class="bg-gradient-to-br from-indigo-100 via-white to-cyan-100 text-gray-800 pt-12 pb-6 border-t border-gray-300">
   <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
 
@@ -129,7 +213,7 @@
           <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
           <a href="https://www.instagram.com/mts_alhidayahwattaqwa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
           target="_blank"
-          rel="noopener noreferrer">mtsalhidayah</a>
+          rel="noopener noreferrer">Madrasah Tsanawiyah AW</a>
         </li>
       </ul>
     </div>
@@ -161,3 +245,4 @@
 </script>
 </body>
 </html>
+
