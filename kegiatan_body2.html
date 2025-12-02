@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google-site-verification" content="GRHpCamPd-u16BuvM47NIDq_V-a0hgnWaJbNEi5s1oo" />
+  <title>MTs Al Hidayah Wattaqwa</title>
+  <meta name="description" content="Portfolio siswa programmer di sekolah.">
+  <link rel="icon" type="image/png" href="images/logo.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome (CDNJS) -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+
+</head>
+
+<body class="bg-gray-50 text-gray-800 selection:bg-indigo-200">
+  <!-- Navbar -->
+<!-- Responsive Navbar -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Brand -->
+    <a href="#" class="flex items-center gap-2">
+      <img src="images/logo.jpg" alt="Logo" class="w-8 h-8 rounded">
+      <!-- Nama pendek untuk mobile, nama panjang untuk >= md -->
+      <span class="font-semibold text-indigo-700 sm:hidden">MTs AlhidayahWattaqwa</span>
+      <span class="font-semibold text-indigo-700 hidden sm:inline">
+        Madrasah Tsanawiyah AlhidayahWattaqwa
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+   <nav class="hidden md:flex items-center gap-6 text-sm">
+  <a href="index.html" class="hover:text-indigo-600">Beranda</a>
+  <a href="tentang_kami.html" class="hover:text-indigo-600">Profil</a>
+  <a href="guru.html" class="hover:text-indigo-600">Guru</a>
+  <a href="alumni.html" class="hover:text-indigo-600">Alumni</a>
+  <a href="Prestasi.html" class="hover:text-indigo-600">Prestasi</a>
+  <a href="sarpras.html" class="hover:text-indigo-600">Sarpras</a>
+  <a href="ekstrakurikuler.html" class="hover:text-indigo-600">Ekstrakurikuler</a>
+  <a href="berita.html" class="hover:text-indigo-600">Berita</a>
+  <a href="agenda.html" class="hover:text-indigo-600">Agenda</a>
+  <a href="ppdb.html" class="hover:text-indigo-600">SPMB</a>
+  <a href="galeri.html" class="hover:text-indigo-600">Galeri</a>
+
+  <a href="#contact"
+    class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">
+    Kontak
+  </a>
+</nav>
+
+
+    <!-- Hamburger (mobile) -->
+    <button id="navToggle"
+      class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-300 hover:bg-gray-100"
+      aria-label="Toggle menu" aria-expanded="false">
+      <!-- icon -->
+      <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu panel -->
+<div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+
+    <a href="index.html" class="py-2 hover:text-indigo-600">Beranda</a>
+    <a href="tentang_kami.html" class="py-2 hover:text-indigo-600">Profil</a>
+    <a href="guru.html" class="py-2 hover:text-indigo-600">Guru</a>
+    <a href="alumni.html" class="py-2 hover:text-indigo-600">Alumni</a>
+    <a href="Prestasi.html" class="py-2 hover:text-indigo-600">Prestasi</a>
+    <a href="sarpras.html" class="py-2 hover:text-indigo-600">Sarpras</a>
+    <a href="ekstrakurikuler.html" class="py-2 hover:text-indigo-600">Ekstrakurikuler</a>
+    <a href="berita.html" class="py-2 hover:text-indigo-600">Berita</a>
+    <a href="agenda.html" class="py-2 hover:text-indigo-600">Agenda</a>
+    <a href="ppdb.html" class="py-2 hover:text-indigo-600">SPMB</a>
+    <a href="galeri.html" class="py-2 hover:text-indigo-600">Galeri</a>
+
+    <a href="#contact"
+      class="mt-1 inline-flex justify-center px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">
+      Kontak
+    </a>
+
+  </div>
+</div>
+
+</header>
+
+  <!-- Toggle mobile menu -->
+<script>
+  const btn = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  const iconOpen  = document.getElementById('iconOpen');
+  const iconClose = document.getElementById('iconClose');
+
+  function closeMenu() {
+    menu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  function openMenu() {
+    menu.classList.remove('hidden');
+    iconOpen.classList.add('hidden');
+    iconClose.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Tutup saat klik link menu
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  // Tutup saat tekan ESC
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+</script>
+
+<!-- ===================== KONTEN HALAMAN ARTIKEL ===================== -->
+<main class="max-w-6xl mx-auto px-4 py-10 lg:grid lg:grid-cols-12 lg:gap-8">
+
+  <!-- KONTEN ARTIKEL -->
+  <article class="lg:col-span-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-8 lg:mb-0">
+
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-gray-500 mb-4">
+      <a href="index.html" class="hover:text-indigo-600">Beranda</a>
+      <span class="mx-1">/</span>
+      <a href="berita.html" class="hover:text-indigo-600">Kegiatan</a>
+      <span class="mx-1">/</span>
+      <span class="text-gray-700">MTs Al Hidayah Wattaqwa Gelar Peringatan Hari Guru Nasional, Siswa Tampilkan Kreasi Seni Budaya</span>
+    </nav>
+
+    <!-- Judul -->
+    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-snug">
+      MTs Al Hidayah Wattaqwa Sukses Laksanakan Penilaian Kinerja Kepala Madrasah (PKKM) 
+    </h1>
+
+    <!-- Meta -->
+    <div class="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-4">
+      <span><i class="fa-regular fa-user mr-1"></i> By Admin</span>
+      <span class="w-1 h-1 rounded-full bg-gray-400"></span>
+      <span><i class="fa-regular fa-calendar mr-1"></i> 28 November 2025</span>
+    </div>
+
+    <hr class="mb-6">
+
+    <!-- Gambar Utama -->
+    <figure class="mb-4">
+      <!-- ganti dengan poster / foto kegiatan -->
+      <img src="pkkm/1.jpg" alt="Assessment Sumatif Tengah Semester I"
+           class="w-full max-h-[520px] object-contain rounded-xl border border-gray-200 bg-gray-50">
+      <figcaption class="mt-2 text-xs text-gray-500">
+        Dokumentasi pelaksanaan PKKM di MTs Al Hidayah Wattaqwa.
+      </figcaption>
+    </figure>
+
+    <!-- Isi Artikel -->
+    <div class="prose prose-sm md:prose-base max-w-none text-gray-700">
+      <p>
+       MTs Al Hidayah Wattaqwa melaksanakan kegiatan Penilaian Kinerja Kepala Madrasah (PKKM) dengan 
+       lancar dan tertib pada hari Jumat 28 November 2025 di lingkungan MTs AT TAQWA 02. 
+       Kegiatan ini merupakan agenda rutin yang bertujuan untuk menilai, mengevaluasi, 
+       serta meningkatkan kualitas kinerja kepala madrasah dalam menjalankan tugas kepemimpinan, manajerial, dan supervisi pendidikan.
+      </p>
+      <br>
+      <p>
+       Tim penilai dari Kantor Kementerian Agama Kabupaten/Kota hadir untuk melakukan peninjauan langsung
+        terhadap berbagai aspek kinerja, mulai dari pengelolaan kurikulum,
+         administrasi, program kerja, hingga pelaksanaan supervisi kepada guru
+          dan tenaga kependidikan. Seluruh dokumen pendukung telah disiapkan dengan baik oleh pihak madrasah sebagai 
+          bentuk kesungguhan dalam menjaga mutu lembaga pendidikan.
+        Dalam proses penilaian, tim evaluator juga berdialog dengan guru, staf, serta kepala madrasah untuk menggali informasi terkait pelaksanaan program dan inovasi yang telah berjalan. Kegiatan berlangsung dengan suasana komunikatif dan profesional, mencerminkan komitmen madrasah dalam memberikan pelayanan pendidikan terbaik bagi peserta didik.
+      </p>
+      <br>
+      <p>
+        Salah satu momen yang paling menarik perhatian adalah penampilan seni dari siswi-siswi MTs Al Hidayah Wattaqwa. Dengan busana bernuansa tradisional, para siswi menampilkan tarian kreasi yang memadukan unsur budaya dan kekinian. Mereka tampil percaya diri di atas panggung dan sukses memukau para guru, siswa, serta tamu yang hadir.
+      </p>
+      <br>
+      <p>
+        Kepala MTs Al Hidayah Wattaqwa Bapak Maftuhin S.Pd.I menyampaikan bahwa kegiatan
+        PKKM menjadi momentum penting bagi madrasah untuk terus berbenah dan meningkatkan kualitas, 
+        baik dalam hal manajemen maupun proses pembelajaran. 
+        Harapannya, hasil PKKM tahun ini dapat menjadi dorongan bagi madrasah untuk semakin maju, berprestasi, dan
+        memberikan kontribusi positif bagi dunia pendidikan Islam.
+        Dengan terlaksananya PKKM tahun ini, MTs Al Hidayah Wattaqwa bertekad untuk terus menjaga kinerja yang profesional serta membangun lingkungan pendidikan yang unggul dan berakhlak mulia.</p>
+      <br>
+      <br>
+    </div>
+
+    <figure class="mb-4">
+      <!-- ganti dengan poster / foto kegiatan -->
+      <img src="pkkm/2.jpg" alt="Assessment Sumatif Tengah Semester I"
+           class="w-full max-h-[520px] object-contain rounded-xl border border-gray-200 bg-gray-50">
+    </figure>
+    <br>
+    <br>
+    <figure class="mb-4">
+      <!-- ganti dengan poster / foto kegiatan -->
+      <img src="pkkm/3.jpg" alt="Assessment Sumatif Tengah Semester I"
+           class="w-full max-h-[520px] object-contain rounded-xl border border-gray-200 bg-gray-50">
+    </figure>
+    <br>
+    <br>
+    <figure class="mb-4">
+      <!-- ganti dengan poster / foto kegiatan -->
+      <img src="pkkm/4.jpg" alt="Assessment Sumatif Tengah Semester I"
+           class="w-full max-h-[520px] object-contain rounded-xl border border-gray-200 bg-gray-50">
+    </figure>
+    <figure class="mb-4">
+      <!-- ganti dengan poster / foto kegiatan -->
+      <img src="pkkm/5.jpg" alt="Assessment Sumatif Tengah Semester I"
+           class="w-full max-h-[520px] object-contain rounded-xl border border-gray-200 bg-gray-50">
+    </figure>
+    <br>
+    <br>
+    <figure class="mb-4">
+      <!-- ganti dengan poster / foto kegiatan -->
+      <img src="pkkm/6.jpg" alt="Assessment Sumatif Tengah Semester I"
+           class="w-full max-h-[520px] object-contain rounded-xl border border-gray-200 bg-gray-50">
+    </figure>
+    <br>
+    <br>
+    <figure class="mb-4">
+      <!-- ganti dengan poster / foto kegiatan -->
+      <img src="pkkm/7.jpg" alt="Assessment Sumatif Tengah Semester I"
+           class="w-full max-h-[520px] object-contain rounded-xl border border-gray-200 bg-gray-50">
+    </figure>
+    <br>
+    <br>
+    <figure class="mb-4">
+      <!-- ganti dengan poster / foto kegiatan -->
+      <img src="pkkm/8.jpg" alt="Assessment Sumatif Tengah Semester I"
+           class="w-full max-h-[520px] object-contain rounded-xl border border-gray-200 bg-gray-50">
+    </figure>
+
+    
+  </article>
+
+
+
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+
