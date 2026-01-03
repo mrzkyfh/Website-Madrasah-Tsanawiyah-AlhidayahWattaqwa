@@ -7,357 +7,512 @@
   <title>MTs Al Hidayah Wattaqwa</title>
   <meta name="description" content="Portfolio siswa programmer di sekolah.">
   <link rel="icon" type="image/png" href="images/logo.jpg">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome (CDNJS) -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-/>
+  <style>
+  /* Brand / Judul sekolah */
+  header .brand-title,
+  header .brand-subtitle {
+    font-size: 1.1rem !important;     /* sebelumnya ±0.9–1rem */
+  }
+
+  /* Menu navbar (desktop) */
+  header nav a {
+    font-size: 0.95rem !important;    /* sebelumnya ±0.8–0.9rem */
+  }
+
+  /* Tombol kontak */
+  header a[href="#contact"] {
+    font-size: 0.95rem !important;
+    font-weight: 600;
+  }
+
+  /* Mobile menu — biar tetap nyaman terbaca */
+  #mobileMenu a {
+    font-size: 1rem !important;
+  }
+</style>
 
 
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Optional: Tailwind custom config (opsional, bisa dihapus kalau mau default) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1D4ED8',
+            primarySoft: '#EEF2FF',
+          },
+          boxShadow: {
+            soft: '0 18px 45px rgba(15, 23, 42, 0.12)',
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-gray-50 text-gray-800 selection:bg-indigo-200">
-  <!-- Navbar -->
-<!-- Responsive Navbar -->
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <!-- Brand -->
-    <a href="#" class="flex items-center gap-2">
-      <img src="images/logo.jpg" alt="Logo" class="w-8 h-8 rounded">
-      <!-- Nama pendek untuk mobile, nama panjang untuk >= md -->
-      <span class="font-semibold text-indigo-700 sm:hidden">MTs AlhidayahWattaqwa</span>
-      <span class="font-semibold text-indigo-700 hidden sm:inline">
-        Madrasah Tsanawiyah AlhidayahWattaqwa
-      </span>
-    </a>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50 to-sky-100 text-slate-800 selection:bg-indigo-200/80">
 
-    <!-- Desktop nav -->
-   <nav class="hidden md:flex items-center gap-6 text-sm">
-  <a href="index.html" class="hover:text-indigo-600">Beranda</a>
-  <a href="tentang_kami.html" class="hover:text-indigo-600">Profil</a>
-  <a href="guru.html" class="hover:text-indigo-600">Guru</a>
-  <a href="alumni.html" class="hover:text-indigo-600">Alumni</a>
-  <a href="Prestasi.html" class="hover:text-indigo-600">Prestasi</a>
-  <a href="sarpras.html" class="hover:text-indigo-600">Sarpras</a>
-  <a href="ekstrakurikuler.html" class="hover:text-indigo-600">Ekstrakurikuler</a>
-  <a href="berita.html" class="hover:text-indigo-600">Berita</a>
-  <a href="agenda.html" class="hover:text-indigo-600">Agenda</a>
-  <a href="ppdb.html" class="hover:text-indigo-600">SPMB</a>
-  <a href="galeri.html" class="hover:text-indigo-600">Galeri</a>
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 border-b border-indigo-100/70 bg-white/80 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <!-- Brand -->
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full overflow-hidden shadow ring-2 ring-indigo-100">
+          <img src="images/logo.jpg" alt="Logo" class="w-full h-full object-cover">
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="font-semibold text-indigo-700 text-sm sm:text-base">
+            MTs AlhidayahWattaqwa
+          </span>
+          <span class="hidden sm:block text-xs text-slate-500">
+            Madrasah Tsanawiyah Alhidayah Wattaqwa
+          </span>
+        </div>
+      </a>
 
-  <a href="#contact"
-    class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">
-    Kontak
-  </a>
-</nav>
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-4 text-[13px] lg:text-sm">
+        <a href="index.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">Beranda</a>
+        <a href="tentang_kami.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">Profil</a>
+        <a href="guru.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">Guru</a>
+        <a href="alumni.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">Alumni</a>
+        <a href="Prestasi.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">Prestasi</a>
+        <a href="sarpras.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">Sarpras</a>
+        <a href="ekstrakurikuler.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">Ekstrakurikuler</a>
+        <a href="berita.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">Berita</a>
+        <a href="agenda.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">Agenda</a>
+        <a href="ppdb.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">SPMB</a>
+        <a href="galeri.html" class="px-2 py-1 rounded-lg hover:bg-primarySoft hover:text-primary transition">Galeri</a>
 
+        <a href="#contact"
+           class="ml-1 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary text-white hover:bg-indigo-500 transition shadow-sm">
+          <i class="fa-regular fa-envelope text-xs"></i>
+          <span>Kontak</span>
+        </a>
+      </nav>
 
-    <!-- Hamburger (mobile) -->
-    <button id="navToggle"
-      class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-gray-300 hover:bg-gray-100"
-      aria-label="Toggle menu" aria-expanded="false">
-      <!-- icon -->
-      <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-      <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-      </svg>
-    </button>
-  </div>
+      <!-- Hamburger (mobile) -->
+      <button id="navToggle"
+              class="md:hidden inline-flex items-center justify-center p-2 rounded-xl border border-indigo-100 bg-white/60 hover:bg-indigo-50 transition"
+              aria-label="Toggle menu" aria-expanded="false">
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
 
-  <!-- Mobile menu panel -->
-<div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 bg-white">
-  <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-indigo-100 bg-white/95 backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto px-4 py-3 grid gap-1.5 text-sm">
+        <a href="index.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">Beranda</a>
+        <a href="tentang_kami.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">Profil</a>
+        <a href="guru.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">Guru</a>
+        <a href="alumni.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">Alumni</a>
+        <a href="Prestasi.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">Prestasi</a>
+        <a href="sarpras.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">Sarpras</a>
+        <a href="ekstrakurikuler.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">Ekstrakurikuler</a>
+        <a href="berita.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">Berita</a>
+        <a href="agenda.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">Agenda</a>
+        <a href="ppdb.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">SPMB</a>
+        <a href="galeri.html" class="py-2 rounded-lg px-2 hover:bg-primarySoft hover:text-primary transition">Galeri</a>
 
-    <a href="index.html" class="py-2 hover:text-indigo-600">Beranda</a>
-    <a href="tentang_kami.html" class="py-2 hover:text-indigo-600">Profil</a>
-    <a href="guru.html" class="py-2 hover:text-indigo-600">Guru</a>
-    <a href="alumni.html" class="py-2 hover:text-indigo-600">Alumni</a>
-    <a href="Prestasi.html" class="py-2 hover:text-indigo-600">Prestasi</a>
-    <a href="sarpras.html" class="py-2 hover:text-indigo-600">Sarpras</a>
-    <a href="ekstrakurikuler.html" class="py-2 hover:text-indigo-600">Ekstrakurikuler</a>
-    <a href="berita.html" class="py-2 hover:text-indigo-600">Berita</a>
-    <a href="agenda.html" class="py-2 hover:text-indigo-600">Agenda</a>
-    <a href="ppdb.html" class="py-2 hover:text-indigo-600">SPMB</a>
-    <a href="galeri.html" class="py-2 hover:text-indigo-600">Galeri</a>
+        <a href="#contact"
+           class="mt-2 inline-flex justify-center items-center gap-2 px-3 py-2 rounded-xl bg-primary text-white hover:bg-indigo-500 transition shadow-sm">
+          <i class="fa-regular fa-envelope text-sm"></i>
+          <span>Hubungi Kami</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <a href="#contact"
-      class="mt-1 inline-flex justify-center px-3 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">
-      Kontak
-    </a>
+  <!-- HERO -->
+  <section
+    class="relative min-h-[78vh] flex items-center justify-center overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img src="images/bg-hero.jpg" alt="Latar Sekolah" class="w-full h-full object-cover opacity-70">
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-900/40 to-indigo-900/60 mix-blend-multiply"></div>
+    </div>
 
-  </div>
-</div>
+    <!-- Content -->
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-16 lg:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6 text-white">
+        <div class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs backdrop-blur-md">
+          <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+          <span>Madrasah Tsanawiyah Swasta – Kota Bekasi</span>
+        </div>
 
-</header>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow-lg">
+          MTs Al Hidayah Wattaqwa
+        </h1>
 
-<script>
-  // Toggle mobile menu
-  const btn = document.getElementById('navToggle');
-  const menu = document.getElementById('mobileMenu');
-  const iconOpen  = document.getElementById('iconOpen');
-  const iconClose = document.getElementById('iconClose');
+        <p class="text-sm md:text-base text-slate-100/90 leading-relaxed max-w-xl">
+          Madrasah Tsanawiyah Al Hidayah Wattaqwa berkomitmen mencetak generasi yang berakhlak mulia,
+          berprestasi, dan siap menghadapi tantangan zaman dengan landasan nilai-nilai Islam.
+        </p>
 
-  function closeMenu() {
-    menu.classList.add('hidden');
-    iconOpen.classList.remove('hidden');
-    iconClose.classList.add('hidden');
-    btn.setAttribute('aria-expanded', 'false');
-  }
-  function openMenu() {
-    menu.classList.remove('hidden');
-    iconOpen.classList.add('hidden');
-    iconClose.classList.remove('hidden');
-    btn.setAttribute('aria-expanded', 'true');
-  }
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="ppdb.html"
+             class="px-5 py-2.5 rounded-full bg-white text-slate-900 text-sm font-semibold shadow-soft hover:bg-slate-100 transition">
+            Informasi SPMB
+          </a>
+          <a href="#about"
+             class="px-4 py-2.5 rounded-full border border-slate-200/60 text-sm font-medium text-white/90 hover:bg-white/10 transition flex items-center gap-2">
+            <i class="fa-regular fa-circle-play text-base"></i>
+            <span>Profil Madrasah</span>
+          </a>
+        </div>
+      </div>
 
-  btn.addEventListener('click', () => {
-    const isOpen = btn.getAttribute('aria-expanded') === 'true';
-    isOpen ? closeMenu() : openMenu();
-  });
+      <!-- Logo panel -->
+      <div class="flex justify-center md:justify-end">
+        <div class="relative">
+          <div class="absolute -inset-6 bg-gradient-to-tr from-indigo-400/50 via-sky-300/40 to-emerald-300/50 opacity-80 blur-2xl"></div>
 
-  // Tutup saat klik link menu
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-  // Tutup saat tekan ESC
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
-</script>
+          <div class="relative rounded-3xl bg-white/80 backdrop-blur-xl border border-indigo-100 shadow-soft px-8 py-8 flex flex-col items-center gap-4">
+            <div class="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border border-indigo-100 shadow-md">
+              <img src="images/logo.jpg" alt="Logo Sekolah" class="w-full h-full object-cover">
+            </div>
+            <div class="text-center space-y-1">
+              <p class="text-xs uppercase tracking-[0.2em] text-indigo-500 font-semibold">
+                Madrasah Tsanawiyah
+              </p>
+              <p class="text-base md:text-lg font-bold text-slate-900">
+                Al Hidayah Wattaqwa
+              </p>
+              <p class="text-[11px] md:text-xs text-slate-500">
+                RT.002/RW.004, Pejuang, Medan Satria, Kota Bekasi
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-  <!-- Hero -->
-<section class="relative bg-cover bg-center bg-no-repeat min-h-[80vh] flex items-center justify-center"
-  style="background-image: url('images/bg-hero.jpg');">
-
-  <!-- Overlay (biar teks terbaca) -->
-  <div class="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
-
-  <!-- Isi konten -->
-  <div class="relative z-10 max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight drop-shadow-md">
-        MTs Al Hidayah Wattaqwa
-      </h1>
-      <p class="mt-6 text-gray-700 text-base md:text-lg leading-relaxed">
-        
+  <!-- TENTANG SEKOLAH -->
+  <section id="about" class="max-w-7xl mx-auto px-4 py-14 md:py-18">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">
+        Tentang Sekolah
+      </h2>
+      <p class="mt-2 text-sm md:text-base text-slate-600 max-w-2xl mx-auto">
+        Jelajahi informasi mengenai alumni, tenaga pendidik, dan prestasi MTs Al Hidayah Wattaqwa.
       </p>
-
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#about" class="text-sm px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition">
-          Profile
-        </a>
-      </div>
-
+      <div class="mx-auto mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-emerald-400 via-indigo-500 to-sky-400"></div>
     </div>
 
-    <div class="flex justify-end">
-        <img src="images/logo.jpg" alt="Logo Sekolah"
-             class="w-56 h-56 md:w-72 md:h-72">
-      </div>
+    <!-- Cards -->
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Alumni -->
+      <a href="alumni.html"
+         class="group relative overflow-hidden rounded-2xl bg-white shadow-soft border border-indigo-100/80 hover:-translate-y-[3px] transition transform">
+        <div class="h-48 overflow-hidden">
+          <img src="images/pengajar.jpg"
+               alt="Alumni"
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-5 space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primarySoft text-[11px] font-medium text-primary">
+            <i class="fa-solid fa-user-graduate text-xs"></i>
+            <span>Jejak Alumni</span>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900">Alumni</h3>
+          <p class="text-sm text-slate-600">
+            Mengenal perjalanan dan kisah inspiratif para alumni MTs Al Hidayah Wattaqwa.
+          </p>
+          <span class="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-1">
+            Lihat data alumni
+            <i class="fa-solid fa-arrow-right-long text-[10px]"></i>
+          </span>
+        </div>
+      </a>
 
-  </div>
-</section>
+      <!-- Pengajar -->
+      <a href="tentang_kami.html"
+         class="group relative overflow-hidden rounded-2xl bg-white shadow-soft border border-indigo-100/80 hover:-translate-y-[3px] transition transform">
+        <div class="h-48 overflow-hidden">
+          <img src="guru/kepsek.jpg"
+               alt="Pengajar"
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-5 space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primarySoft text-[11px] font-medium text-primary">
+            <i class="fa-solid fa-chalkboard-user text-xs"></i>
+            <span>Tenaga Pendidik</span>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900">Pengajar</h3>
+          <p class="text-sm text-slate-600">
+            Tenaga pendidik profesional yang berdedikasi dalam membimbing peserta didik.
+          </p>
+          <span class="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-1">
+            Lihat profil guru
+            <i class="fa-solid fa-arrow-right-long text-[10px]"></i>
+          </span>
+        </div>
+      </a>
 
-
-<!-- Tentang Sekolah -->
-<section id="about" class="max-w-7xl mx-auto px-4 py-14">
-  <!-- Judul + garis hijau kecil -->
-  <div class="text-center mb-10">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F2B5C]">Tentang Sekolah</h2>
-    <div class="mx-auto mt-3 h-1 w-24 rounded bg-green-500"></div>
-  </div>
-
-  <!-- 3 Kartu -->
-  <div class="grid gap-8 md:grid-cols-3">
-    <!-- KARTU 1: Alumni -->
-    <a href="alumni.html" class="block group rounded-2xl bg-[#0F2B5C] p-6 md:p-7 hover:shadow-lg transition">
-  <div class="relative mx-auto h-64 w-64 md:h-72 md:w-72">
-    <div class="absolute inset-0 rounded-full bg-[#122F66]"></div>
-    <div class="absolute inset-6 rounded-full bg-[#1B3C8E]"></div>
-    <div class="absolute inset-14 rounded-full bg-white p-2">
-      <div class="h-full w-full overflow-hidden rounded-full">
-        <img src="images/pengajar.jpg" alt="Pengajar"
-             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]">
-      </div>
-    </div>
-  </div>
-  <h3 class="mt-6 text-center text-3xl font-extrabold text-[#0F2B5C] bg-white inline-block px-4 py-1 rounded">
-    Alumni
-  </h3>
-</a>
-
-<!-- KARTU 2: Pengajar -->
-<a href="tentang_kami.html" class="block group rounded-2xl bg-[#0F2B5C] p-6 md:p-7 hover:shadow-lg transition">
-  <div class="relative mx-auto h-64 w-64 md:h-72 md:w-72">
-    <div class="absolute inset-0 rounded-full bg-[#122F66]"></div>
-    <div class="absolute inset-6 rounded-full bg-[#1B3C8E]"></div>
-    <div class="absolute inset-14 rounded-full bg-white p-2">
-      <div class="h-full w-full overflow-hidden rounded-full">
-        <img src="guru/kepsek.jpg" alt="Kepsek"
-             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]">
-      </div>
-    </div>
-  </div>
-  <h3 class="mt-6 text-center text-3xl font-extrabold text-[#0F2B5C] bg-white inline-block px-4 py-1 rounded">
-    Pengajar
-  </h3>
-</a>
-
-
-    <!-- KARTU 3: Prestasi -->
-    <a href="Prestasi.html" class="block group rounded-2xl bg-[#0F2B5C] p-6 md:p-7 hover:shadow-lg transition">
-  <div class="relative mx-auto h-64 w-64 md:h-72 md:w-72">
-    <div class="absolute inset-0 rounded-full bg-[#122F66]"></div>
-    <div class="absolute inset-6 rounded-full bg-[#1B3C8E]"></div>
-    <div class="absolute inset-14 rounded-full bg-white p-2">
-      <div class="h-full w-full overflow-hidden rounded-full">
-        <img src="images/pengajar.jpg" alt="Pengajar"
-             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]">
-      </div>
-    </div>
-  </div>
-  <h3 class="mt-6 text-center text-3xl font-extrabold text-[#0F2B5C] bg-white inline-block px-4 py-1 rounded">
-    Prestasi
-  </h3>
-</a>
-</section>
-
-<section class="max-w-7xl mx-auto px-4 py-12">
-  <div class="grid md:grid-cols-3 gap-6">
-
-    <!-- CARD 1 -->
-    <div class="bg-white rounded-xl shadow border overflow-hidden">
-
-      <div class="bg-[#0F2B5C] text-white text-center py-3 rounded-t-xl font-bold text-lg">
-        Kegiatan
-      </div>
-
-      <img src="hari_guru/7.jpg" class="w-full h-72 object-cover" alt="">
-
-      <div class="p-4">
-
-        <h3 class="font-semibold text-gray-900 mb-1">
-          MTs Al Hidayah Wattaqwa Gelar Peringatan Hari Guru Nasional, Siswa Tampilkan Kreasi Seni Budaya 
-        </h3>
-
-        <p class="text-sm text-gray-600 mb-3">
-          Hari Guru MTs Al Hidayah Wattaqwa
-        </p>
-
-        <a href="kegiatan_body.html" class="text-sm text-blue-600 font-medium hover:underline">
-          Selengkapnya »
-        </a>
-      </div>
-    </div>
-
-    <!-- CARD 2 -->
-    <div class="bg-white rounded-xl shadow border overflow-hidden">
-      <div class="bg-[#0F2B5C] text-white text-center py-3 rounded-t-xl font-bold text-lg">
-        Kegiatan
-      </div>
-
-      <img src="pkkm/1.jpg" class="w-full h-72 object-cover" alt="">
-
-      <div class="p-4">
-
-        <h3 class="font-semibold text-gray-900 mb-1">
-          MTs Al Hidayah Wattaqwa Sukses Laksanakan Penilaian Kinerja Kepala Madrasah (PKKM) 
-        </h3>
-
-        <p class="text-sm text-gray-600 mb-3">
-          MTs Al Hidayah Wattaqwa gelar (PKKM)
-        </p>
-
-        <a href="kegiatan_body2.html" class="text-sm text-blue-600 font-medium hover:underline">
-          Selengkapnya »
-        </a>
-      </div>
-    </div>
-    
-  </div>
-</section>
-
-  <!-- Contact -->
-  <section id="contact" class="max-w-6xl mx-auto px-4 py-12 md:py-16">
-    <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow">
-      <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-2">
-       Hubungi Kami
-      </h2> 
-      <p class="mt-2 text-gray-700">Hubungi kami untuk informasi lebih lanjut.</p>
-      <a href="https://wa.me/6285715739132" target="_blank"
-         class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-500 transition">
-        <i class="fa-brands fa-whatsapp text-xl"></i> Kirim Pesan WhatsApp
+      <!-- Prestasi -->
+      <a href="Prestasi.html"
+         class="group relative overflow-hidden rounded-2xl bg-white shadow-soft border border-indigo-100/80 hover:-translate-y-[3px] transition transform">
+        <div class="h-48 overflow-hidden">
+          <img src="images/pengajar.jpg"
+               alt="Prestasi"
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="p-5 space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primarySoft text-[11px] font-medium text-primary">
+            <i class="fa-solid fa-trophy text-xs"></i>
+            <span>Prestasi Siswa</span>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900">Prestasi</h3>
+          <p class="text-sm text-slate-600">
+            Rangkaian prestasi akademik maupun non-akademik yang diraih oleh peserta didik.
+          </p>
+          <span class="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-1">
+            Lihat prestasi
+            <i class="fa-solid fa-arrow-right-long text-[10px]"></i>
+          </span>
+        </div>
       </a>
     </div>
   </section>
-  
-  <!-- MAP -->
-<section id="lokasi" class="mt-10">
-  <div class="w-full h-[400px] md:h-[450px]">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.174806587462!2d106.98074371386839!3d-6.191754168520264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b95ab3f0bff%3A0x8906dc871a59001a!2sAl%20Hidayah%20Wattaqwa!5e0!3m2!1sid!2sid!4v1762515818011!5m2!1sid!2sid"
-      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-</section>
 
-<footer class="bg-gradient-to-br from-indigo-100 via-white to-cyan-100 text-gray-800 pt-12 pb-6 border-t border-gray-300">
-  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
-
-    <!-- PUSAT INFORMASI -->
-    <div>
-      <h3 class="font-bold text-gray-900 text-lg mb-3">PUSAT INFORMASI</h3>
-      <img src="images/logo.jpg" alt="Logo Sekolah" class="w-16 h-16 mb-3 rounded-full">
-      <p class="text-sm flex items-start gap-2"><span>📍</span>RT.002/RW.004, Pejuang, Medan Satria, Kota Bekasi, Jawa Barat 17131</p>
-      <p class="mt-2 text-sm flex items-center gap-2"><span>📞</span>0859-5287-4984</p>
-      <p class="mt-1 text-sm flex items-center gap-2"><span>📧</span>
-        <a href="mailto:mtsaw@sekolah.sch.id" class="hover:text-indigo-700 font-medium">mtsaw@sekolah.sch.id</a>
-      </p>
+  <!-- KEGIATAN HIGHLIGHT -->
+  <section class="max-w-7xl mx-auto px-4 pb-14">
+    <div class="flex items-center justify-between gap-4 mb-5">
+      <div>
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900">Kegiatan Terbaru</h2>
+        <p class="text-sm text-slate-600">Dokumentasi kegiatan dan momen penting di lingkungan madrasah.</p>
+      </div>
+      <a href="berita.html"
+         class="hidden md:inline-flex items-center gap-2 text-xs font-medium text-primary hover:underline">
+        Lihat semua berita
+        <i class="fa-solid fa-arrow-right-long text-[10px]"></i>
+      </a>
     </div>
 
-    <!-- INSTAGRAM -->
-    <div>
-      <h3 class="font-bold text-gray-900 text-lg mb-3 flex items-center gap-2">
-        <i class="fa-brands fa-instagram text-pink-600 text-2xl"></i>
-        Instagram
-      </h3>
-      <ul class="space-y-2 text-sm">
-        <li class="flex items-center gap-3">
-          <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
-          <a href="https://www.instagram.com/mts_alhidayahwattaqwa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-          target="_blank"
-          rel="noopener noreferrer">Madrasah Tsanawiyah AW</a>
-        </li>
-      </ul>
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- CARD 1 -->
+      <div class="bg-white rounded-2xl shadow-soft border border-indigo-100/80 overflow-hidden flex flex-col">
+        <div class="bg-[#0F2B5C] text-white text-center py-3 text-sm font-semibold tracking-wide">
+          Kegiatan
+        </div>
+        <img src="hari_guru/7.jpg" class="w-full h-64 object-cover" alt="Hari Guru">
+        <div class="p-5 flex-1 flex flex-col">
+          <h3 class="font-semibold text-slate-900 mb-2 text-sm md:text-base">
+            MTs Al Hidayah Wattaqwa Gelar Peringatan Hari Guru Nasional, Siswa Tampilkan Kreasi Seni Budaya 
+          </h3>
+          <p class="text-xs text-slate-600 mb-3">
+            Peringatan Hari Guru Nasional dengan berbagai penampilan seni dari peserta didik.
+          </p>
+          <a href="kegiatan_body.html"
+             class="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline">
+            Selengkapnya »
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="bg-white rounded-2xl shadow-soft border border-indigo-100/80 overflow-hidden flex flex-col">
+        <div class="bg-[#0F2B5C] text-white text-center py-3 text-sm font-semibold tracking-wide">
+          Kegiatan
+        </div>
+        <img src="pkkm/1.jpg" class="w-full h-64 object-cover" alt="PKKM">
+        <div class="p-5 flex-1 flex flex-col">
+          <h3 class="font-semibold text-slate-900 mb-2 text-sm md:text-base">
+            MTs Al Hidayah Wattaqwa Sukses Laksanakan Penilaian Kinerja Kepala Madrasah (PKKM) 
+          </h3>
+          <p class="text-xs text-slate-600 mb-3">
+            Pelaksanaan PKKM sebagai upaya peningkatan mutu manajemen dan layanan pendidikan.
+          </p>
+          <a href="kegiatan_body2.html"
+             class="mt-auto inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline">
+            Selengkapnya »
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 pb-10 md:pb-14">
+    <div class="grid md:grid-cols-[1.1fr,1.1fr] gap-6">
+      <!-- Card kontak -->
+      <div class="rounded-2xl border border-indigo-100 bg-white/90 backdrop-blur shadow-soft p-6 md:p-7">
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primarySoft text-primary">
+            <i class="fa-regular fa-message"></i>
+          </span>
+          Hubungi Kami
+        </h2> 
+        <p class="mt-2 text-sm md:text-base text-slate-600">
+          Hubungi kami untuk informasi lebih lanjut mengenai pendaftaran, kegiatan, atau kerja sama.
+        </p>
+
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href="https://wa.me/6285715739132" target="_blank"
+             class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-medium hover:bg-emerald-500 transition shadow">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            Kirim Pesan WhatsApp
+          </a>
+        </div>
+
+        <div class="mt-5 space-y-2 text-sm text-slate-600">
+          <p class="flex items-start gap-2">
+            <span class="mt-[3px]"><i class="fa-solid fa-location-dot text-primary"></i></span>
+            <span>RT.002/RW.004, Pejuang, Medan Satria, Kota Bekasi, Jawa Barat 17131</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fa-solid fa-phone text-primary"></i>
+            <span>0859-5287-4984</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <i class="fa-regular fa-envelope text-primary"></i>
+            <a href="mailto:mtsaw@sekolah.sch.id" class="hover:text-primary font-medium">
+              mtsaw@sekolah.sch.id
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- MAP -->
+      <div id="lokasi" class="rounded-2xl overflow-hidden border border-indigo-100 shadow-soft bg-slate-100">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.174806587462!2d106.98074371386839!3d-6.191754168520264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b95ab3f0bff%3A0x8906dc871a59001a!2sAl%20Hidayah%20Wattaqwa!5e0!3m2!1sid!2sid!4v1762515818011!5m2!1sid!2sid"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gradient-to-br from-indigo-100 via-white to-cyan-100 text-slate-800 pt-10 pb-6 border-t border-indigo-100/80">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
+
+      <!-- PUSAT INFORMASI -->
+      <div>
+        <h3 class="font-bold text-slate-900 text-lg mb-3">PUSAT INFORMASI</h3>
+        <div class="flex items-center gap-3 mb-3">
+          <img src="images/logo.jpg" alt="Logo Sekolah" class="w-12 h-12 rounded-full border border-indigo-100 shadow-sm">
+          <div>
+            <p class="text-sm font-semibold text-slate-900">MTs Al Hidayah Wattaqwa</p>
+            <p class="text-[11px] text-slate-500">Madrasah Tsanawiyah Swasta, Kota Bekasi</p>
+          </div>
+        </div>
+        <p class="text-sm flex items-start gap-2">
+          <span>📍</span>
+          <span>RT.002/RW.004, Pejuang, Medan Satria, Kota Bekasi, Jawa Barat 17131</span>
+        </p>
+        <p class="mt-2 text-sm flex items-center gap-2">
+          <span>📞</span> 0859-5287-4984
+        </p>
+        <p class="mt-1 text-sm flex items-center gap-2">
+          <span>📧</span>
+          <a href="mailto:mtsaw@sekolah.sch.id" class="hover:text-primary font-medium">mtsaw@sekolah.sch.id</a>
+        </p>
+      </div>
+
+      <!-- INSTAGRAM -->
+      <div>
+        <h3 class="font-bold text-slate-900 text-lg mb-3 flex items-center gap-2">
+          <i class="fa-brands fa-instagram text-pink-600 text-2xl"></i>
+          Instagram
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-center gap-3">
+            <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
+            <a href="https://www.instagram.com/mts_alhidayahwattaqwa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+               target="_blank"
+               rel="noopener noreferrer"
+               class="hover:text-primary">
+              Madrasah Tsanawiyah AW
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- TIKTOK -->
+      <div>
+        <h3 class="font-bold text-slate-900 text-lg mb-3 flex items-center gap-2">
+          <i class="fa-brands fa-tiktok text-black text-2xl"></i>
+          TikTok
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-center gap-3">
+            <i class="fa-brands fa-tiktok text-black text-lg"></i>
+            <a href="https://www.tiktok.com/@mts._alhidayahwattaqwa24?is_from_webapp=1&sender_device=pc" 
+               target="_blank"
+               rel="noopener noreferrer"
+               class="hover:text-primary">
+              mts._alhidayahwattaqwa24
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- (Kolom kosong/opsional untuk nanti) -->
+      <div class="text-sm text-slate-500 md:text-right">
+        <p class="font-semibold text-slate-800 mb-1">Link Cepat</p>
+        <a href="ppdb.html" class="block hover:text-primary">Informasi SPMB</a>
+        <a href="berita.html" class="block hover:text-primary">Berita & Kegiatan</a>
+        <a href="galeri.html" class="block hover:text-primary">Galeri</a>
+      </div>
     </div>
 
-    <!-- TIKTOK -->
-    <div>
-      <h3 class="font-bold text-gray-900 text-lg mb-3 flex items-center gap-2">
-        <i class="fa-brands fa-tiktok text-black text-2xl"></i>
-        TikTok
-      </h3>
-      <ul class="space-y-2 text-sm">
-        <li class="flex items-center gap-3">
-          <i class="fa-brands fa-tiktok text-black text-lg"></i>
-          <a href="https://www.tiktok.com/@mts._alhidayahwattaqwa24?is_from_webapp=1&sender_device=pc" 
-          target="_blank"
-          rel="noopener noreferrer">mts._alhidayahwattaqwa24</a>
-        </li>
-      </ul>
+    <div class="mt-8 border-t border-indigo-100 pt-4 text-center text-[11px] text-slate-500">
+      © <span id="year"></span> MTs Al Hidayah Wattaqwa — All Rights Reserved.
     </div>
-  </div>
+  </footer>
 
-  <div class="mt-10 border-t border-gray-300 pt-4 text-center text-xs text-gray-600">
-    © <span id="year"></span> MTs Al Hidayah Wattaqwa — All Rights Reserved.
-  </div>
-</footer>
+  <!-- SCRIPTS -->
+  <script>
+    // Tahun footer
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+    // Toggle mobile menu
+    const btn = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+    const iconOpen  = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+
+    function closeMenu() {
+      menu.classList.add('hidden');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    function openMenu() {
+      menu.classList.remove('hidden');
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    // Tutup saat klik link menu
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Tutup saat tekan ESC
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+  </script>
 </body>
 </html>
-
