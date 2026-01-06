@@ -1,0 +1,22 @@
+
+  /* Brand / Judul sekolah */
+  header .brand-title,
+  header .brand-subtitle {
+    font-size: 1.1rem !important;     /* sebelumnya ±0.9–1rem */
+  }
+
+  /* Menu navbar (desktop) */
+  header nav a {
+    font-size: 0.95rem !important;    /* sebelumnya ±0.8–0.9rem */
+  }
+
+  /* Tombol kontak */
+  header a[href="#contact"] {
+    font-size: 0.95rem !important;
+    font-weight: 600;
+  }
+
+  /* Mobile menu — biar tetap nyaman terbaca */
+  #mobileMenu a {
+    font-size: 1rem !important;
+  }
