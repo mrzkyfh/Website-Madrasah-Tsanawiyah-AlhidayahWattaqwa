@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Blok halaman admin dari Google
+Disallow: /admin-sekolah/
+
+# Sitemap
+Sitemap: https://mts-alhidayahwattaqwa.pages.dev/sitemap.xml

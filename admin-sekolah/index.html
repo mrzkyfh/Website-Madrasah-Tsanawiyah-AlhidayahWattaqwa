@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Berita - MTs Al Hidayah Wattaqwa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+  <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    /* Editor Article Mode */
+    #article-editor .ql-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      padding: 12px 24px;
+    }
+    #article-editor .ql-container {
+      border: none;
+      font-size: 17px;
+      font-family: 'Georgia', serif;
+    }
+    #article-editor .ql-editor {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      min-height: calc(100vh - 200px);
+      line-height: 1.9;
+      color: #1e293b;
+    }
+    #article-editor .ql-editor p { margin-bottom: 1.2em; }
+    #article-editor .ql-editor h2 { font-size: 1.8em; font-weight: 700; margin: 1.5em 0 0.5em; }
+    #article-editor .ql-editor h3 { font-size: 1.3em; font-weight: 600; margin: 1.2em 0 0.4em; }
+    #article-editor .ql-editor blockquote {
+      border-left: 4px solid #6366f1;
+      padding: 12px 20px;
+      background: #f0f0ff;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      margin: 1.5em 0;
+    }
+    #article-editor .ql-editor img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 1.5em auto;
+      display: block;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    /* Sidebar list */
+    .ql-editor { min-height: 180px; font-size: 14px; }
+    .ql-container.ql-snow, .ql-toolbar.ql-snow { border-color: #e2e8f0; }
+    .ql-toolbar.ql-snow { border-radius: 10px 10px 0 0; background: #f8fafc; }
+    .ql-container.ql-snow { border-radius: 0 0 10px 10px; }
+
+    @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .slide-in { animation: slideIn 0.2s ease forwards; }
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800">
+
+  <!-- ====== LOGIN OVERLAY ====== -->
+  <div id="login-overlay" class="fixed inset-0 z-[200] bg-gradient-to-br from-slate-900 to-indigo-950 flex items-center justify-center px-4">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-sm w-full slide-in">
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <i class="fa-solid fa-newspaper text-2xl text-indigo-600"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900">Admin Sekolah</h2>
+        <p class="text-slate-500 text-sm mt-1">Masuk untuk kelola berita</p>
+      </div>
+      <form id="login-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 mb-1 uppercase">Email</label>
+          <input type="email" id="email" autocomplete="email" placeholder="admin@email.com"
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none" required />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-500 mb-1 uppercase">Password</label>
+          <input type="password" id="password" autocomplete="current-password" placeholder="••••••••"
+            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none" required />
+        </div>
+        <div id="login-error" class="hidden text-red-500 text-sm text-center bg-red-50 p-3 rounded-xl"></div>
+        <button type="submit" id="login-btn"
+          class="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition">
+          <span id="login-label">Masuk</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====== ARTICLE WRITER MODE (Full Screen) ====== -->
+  <div id="article-writer" class="hidden fixed inset-0 z-[100] bg-white flex flex-col">
+    <!-- Writer Topbar -->
+    <div class="border-b border-slate-200 px-6 py-3 flex items-center justify-between bg-white shadow-sm flex-shrink-0">
+      <button onclick="closeWriter()" class="flex items-center gap-2 text-slate-500 hover:text-slate-800 transition text-sm font-medium">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Kembali ke Daftar</span>
+      </button>
+      <div class="flex items-center gap-2">
+        <span id="writer-status" class="text-xs text-slate-400 italic"></span>
+        <button onclick="saveArticle()" id="publish-btn"
+          class="bg-indigo-600 text-white px-5 py-2 rounded-xl text-sm font-bold hover:bg-indigo-700 transition flex items-center gap-2">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span id="publish-label">Simpan & Terbitkan</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Writer Meta (Judul, Kategori, Foto) -->
+    <div class="border-b border-slate-100 bg-slate-50 flex-shrink-0">
+      <div class="max-w-3xl mx-auto px-6 py-4 space-y-3">
+        <div class="flex flex-wrap gap-3 items-center">
+          <!-- Kategori -->
+          <select id="writer-category"
+            class="px-3 py-1.5 text-sm rounded-lg border border-slate-200 bg-white outline-none focus:border-indigo-500">
+            <option value="Berita">📰 Berita</option>
+            <option value="Kegiatan">🎯 Kegiatan</option>
+            <option value="Agenda">📅 Agenda</option>
+          </select>
+
+          <!-- Upload Foto Cover -->
+          <label for="writer-cover" class="flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg border border-dashed border-slate-300 hover:border-indigo-400 cursor-pointer text-slate-500 hover:text-indigo-600 transition bg-white">
+            <i class="fa-solid fa-image text-xs"></i>
+            <span id="cover-label">Foto Cover</span>
+          </label>
+          <input type="file" id="writer-cover" accept="image/*" class="hidden">
+
+          <div id="writer-cover-preview" class="hidden items-center gap-2">
+            <img id="writer-cover-img" src="" class="h-8 w-12 object-cover rounded">
+            <button onclick="clearCover()" class="text-xs text-red-500 hover:text-red-700">Hapus</button>
+          </div>
+        </div>
+
+        <!-- Judul Artikel -->
+        <input type="text" id="writer-title" placeholder="Tulis judul berita di sini..."
+          class="w-full text-2xl md:text-3xl font-extrabold text-slate-900 bg-transparent border-none outline-none placeholder-slate-300 leading-tight" />
+
+        <!-- Ringkasan (Opsional) -->
+        <input type="text" id="writer-excerpt" placeholder="Tambahkan ringkasan singkat (opsional)..."
+          class="w-full text-sm text-slate-500 bg-transparent border-none outline-none placeholder-slate-300" />
+
+        <!-- Upload Galeri Foto -->
+        <div class="border-t border-slate-100 pt-3">
+          <div class="flex items-center gap-3 flex-wrap">
+            <label for="gallery-upload"
+              class="flex items-center gap-1.5 px-3 py-1.5 text-xs rounded-lg border border-dashed border-slate-300 hover:border-indigo-400 cursor-pointer text-slate-500 hover:text-indigo-600 transition bg-white">
+              <i class="fa-solid fa-images text-xs"></i>
+              <span>+ Tambah Foto ke Galeri</span>
+            </label>
+            <input type="file" id="gallery-upload" accept="image/*" multiple class="hidden">
+            <span class="text-xs text-slate-400 italic" id="gallery-count">Belum ada foto galeri</span>
+          </div>
+          <!-- Preview galeri -->
+          <div id="gallery-preview" class="flex flex-wrap gap-2 mt-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quill Editor Area -->
+    <div id="article-editor" class="flex-1 overflow-y-auto"></div>
+
+    <input type="hidden" id="writer-id">
+    <input type="hidden" id="writer-existing-cover">
+  </div>
+
+  <!-- ====== DASHBOARD ====== -->
+  <div id="admin-dashboard" class="hidden">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between sticky top-0 z-50 shadow-sm">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+          <i class="fa-solid fa-newspaper text-white text-xs"></i>
+        </div>
+        <span class="font-bold text-slate-800">Admin Berita Sekolah</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="openWriter()" 
+          class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-indigo-700 transition flex items-center gap-2">
+          <i class="fa-solid fa-plus"></i>
+          <span>Tulis Berita</span>
+        </button>
+        <button onclick="handleLogout()"
+          class="text-sm text-slate-500 hover:text-red-600 flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span class="hidden sm:block">Keluar</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Stats Bar -->
+    <div class="max-w-7xl mx-auto px-6 py-4 grid grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl border border-slate-200 p-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600"><i class="fa-solid fa-newspaper"></i></div>
+        <div><p class="text-xs text-slate-400">Total Berita</p><p id="stat-total" class="text-xl font-bold">0</p></div>
+      </div>
+      <div class="bg-white rounded-xl border border-slate-200 p-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600"><i class="fa-solid fa-star"></i></div>
+        <div><p class="text-xs text-slate-400">Kegiatan</p><p id="stat-kegiatan" class="text-xl font-bold">0</p></div>
+      </div>
+      <div class="bg-white rounded-xl border border-slate-200 p-4 flex items-center gap-3">
+        <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600"><i class="fa-solid fa-calendar-days"></i></div>
+        <div><p class="text-xs text-slate-400">Agenda</p><p id="stat-agenda" class="text-xl font-bold">0</p></div>
+      </div>
+    </div>
+
+    <!-- Daftar Berita -->
+    <main class="max-w-7xl mx-auto px-6 pb-10">
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
+          <h3 class="font-bold text-slate-800">Semua Artikel</h3>
+          <span id="news-count" class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-bold">0 Artikel</span>
+        </div>
+        <div id="news-list" class="divide-y divide-slate-100">
+          <div class="p-10 text-center text-slate-400">
+            <i class="fa-solid fa-spinner fa-spin text-3xl mb-3"></i>
+            <p>Memuat artikel...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/site-config.js"></script>
+  <script src="/admin-sekolah/admin.js"></script>
+</body>
+</html>

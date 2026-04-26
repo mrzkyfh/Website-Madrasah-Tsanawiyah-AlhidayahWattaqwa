@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Berita & Kegiatan | MTs Al Hidayah Wattaqwa Bekasi</title>
+  <meta name="description" content="Berita terbaru, kegiatan, dan agenda MTs Al Hidayah Wattaqwa Kota Bekasi. Ikuti perkembangan madrasah kami melalui kabar dan informasi terkini.">
+  <meta name="keywords" content="berita MTs Al Hidayah Wattaqwa, kegiatan madrasah Bekasi, agenda sekolah Islam Bekasi, informasi MTs Bekasi">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mts-alhidayahwattaqwa.pages.dev/berita">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Berita & Kegiatan | MTs Al Hidayah Wattaqwa">
+  <meta property="og:description" content="Berita terbaru, kegiatan, dan agenda MTs Al Hidayah Wattaqwa Kota Bekasi.">
+  <meta property="og:image" content="https://mts-alhidayahwattaqwa.pages.dev/images/logo.jpg">
+  <meta property="og:url" content="https://mts-alhidayahwattaqwa.pages.dev/berita">
   <meta name="google-site-verification" content="GRHpCamPd-u16BuvM47NIDq_V-a0hgnWaJbNEi5s1oo" />
-  <title>MTs Al Hidayah Wattaqwa</title>
-  <meta name="description" content="Portfolio siswa programmer di sekolah.">
   <link rel="icon" type="image/png" href="images/logo.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome (CDNJS) -->
@@ -139,63 +147,25 @@
 
   <div class="grid gap-6 md:grid-cols-3">
     <!-- Kolom Berita -->
-    <section class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-      <header class="bg-[#0F2B5C] text-white text-center py-3 font-semibold text-lg">
-        Berita
-      </header>
-      <div class="p-4">
-        <img src="images/bg-hero.jpg" alt="Berita" class="w-full h-64 object-cover rounded-lg mb-4">
-        <h2 class="font-semibold text-gray-900 text-sm">
-          SD Global Prima Juara 1 Renang Putri
-        </h2>
-        <p class="mt-2 text-xs text-gray-600 line-clamp-3">
-          Selamat & sukses kepada siswa yang meraih prestasi lomba renang tingkat kota...
-        </p>
-        <a href="#" class="mt-3 inline-block text-xs text-indigo-600 hover:text-indigo-800">
-          Selengkapnya &raquo;
-        </a>
-      </div>
-    </section>
+    <div id="grid-berita" class="space-y-6">
+      <div class="p-8 text-center text-slate-400 italic">Belum ada berita.</div>
+    </div>
 
     <!-- Kolom Kegiatan -->
-    <section class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-      <header class="bg-[#0F2B5C] text-white text-center py-3 font-semibold text-lg">
-        Kegiatan
-      </header>
-      <div class="p-4">
-        <img src="images/bg-hero.jpg" alt="Kegiatan" class="w-full h-64 object-cover rounded-lg mb-4">
-        <h2 class="font-semibold text-gray-900 text-sm">
-          Kegiatan Assesment Sumatif Tengah Semester
-        </h2>
-        <p class="mt-2 text-xs text-gray-600 line-clamp-3">
-          Pelaksanaan asesmen sumatif sebagai evaluasi capaian pembelajaran siswa...
-        </p>
-        <a href="#" class="mt-3 inline-block text-xs text-indigo-600 hover:text-indigo-800">
-          Selengkapnya &raquo;
-        </a>
-      </div>
-    </section>
+    <div id="grid-kegiatan" class="space-y-6">
+      <div class="p-8 text-center text-slate-400 italic">Belum ada kegiatan.</div>
+    </div>
 
     <!-- Kolom Agenda -->
-    <section class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-      <header class="bg-[#0F2B5C] text-white text-center py-3 font-semibold text-lg">
-        Agenda
-      </header>
-      <div class="p-4">
-        <img src="images/bg-hero.jpg" alt="Agenda" class="w-full h-64 object-cover rounded-lg mb-4">
-          <h2 class="font-semibold text-gray-900 text-sm">
-            Kegiatan Pelaksanaan ANBK
-          </h2>
-          <p class="mt-2 text-xs text-gray-600 line-clamp-3">
-            Jadwal dan pelaksanaan Asesmen Nasional Berbasis Komputer (ANBK) di madrasah...
-          </p>
-          <a href="#" class="mt-3 inline-block text-xs text-indigo-600 hover:text-indigo-800">
-            Selengkapnya &raquo;
-          </a>
-      </div>
-    </section>
+    <div id="grid-agenda" class="space-y-6">
+      <div class="p-8 text-center text-slate-400 italic">Belum ada agenda.</div>
+    </div>
   </div>
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="site-config.js"></script>
+<script src="news-load.js"></script>
 
 
 <!-- Footer -->

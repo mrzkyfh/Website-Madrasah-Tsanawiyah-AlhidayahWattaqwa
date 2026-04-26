@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Diupdate otomatis oleh JS -->
+  <title>Berita | MTs Al Hidayah Wattaqwa</title>
+  <meta name="description" id="meta-desc" content="Baca berita terbaru dari MTs Al Hidayah Wattaqwa Kota Bekasi.">
+  <meta name="keywords" content="berita MTs Al Hidayah Wattaqwa, kegiatan madrasah Bekasi">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MTs Al Hidayah Wattaqwa">
+  <meta property="og:title" id="og-title" content="Berita | MTs Al Hidayah Wattaqwa">
+  <meta property="og:description" id="og-desc" content="Baca berita terbaru dari MTs Al Hidayah Wattaqwa.">
+  <meta property="og:image" id="og-image" content="https://mts-alhidayahwattaqwa.pages.dev/images/logo.jpg">
+  <meta name="google-site-verification" content="GRHpCamPd-u16BuvM47NIDq_V-a0hgnWaJbNEi5s1oo" />
+  <link rel="canonical" id="canonical-url" href="https://mts-alhidayahwattaqwa.pages.dev/berita">
+  <link rel="icon" type="image/png" href="/images/logo.jpg">
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="bg-white text-slate-800">
+
+  <!-- Navbar Sederhana -->
+  <header class="bg-white border-b border-slate-100 sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 py-4">
+      <a href="index.html" class="flex items-center gap-2 text-indigo-700 font-bold hover:text-indigo-800 transition">
+        <i class="fa-solid fa-arrow-left text-sm"></i>
+        <span>Beranda</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8 md:py-12">
+    <!-- Debug Info (hanya terlihat saat ada masalah) -->
+    <div id="debug-info" class="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-xs text-yellow-800 font-mono break-all"></div>
+
+    <article id="news-detail" class="hidden">
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6 overflow-hidden whitespace-nowrap">
+        <a href="index.html" class="hover:text-indigo-600">Beranda</a>
+        <span>/</span>
+        <a id="breadcrumb-category" href="berita.html" class="hover:text-indigo-600">Kegiatan</a>
+        <span>/</span>
+        <span id="breadcrumb-title" class="truncate">Judul Berita</span>
+      </nav>
+
+      <!-- Judul Utama -->
+      <h1 id="news-title" class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
+        Judul Berita
+      </h1>
+
+      <!-- Meta Info -->
+      <div class="flex items-center gap-4 text-sm text-slate-500 mb-8">
+        <div class="flex items-center gap-2">
+          <i class="fa-regular fa-user text-slate-400"></i>
+          <span>By <span id="news-author" class="font-medium text-slate-700">Admin</span></span>
+        </div>
+        <span class="text-slate-300">•</span>
+        <div class="flex items-center gap-2">
+          <i class="fa-regular fa-calendar text-slate-400"></i>
+          <span id="news-date">25 November 2025</span>
+        </div>
+      </div>
+
+      <!-- Foto Utama & Caption -->
+      <div class="mb-10">
+        <div class="rounded-3xl overflow-hidden shadow-xl mb-4">
+          <img id="news-image" src="" alt="Foto Utama" class="w-full h-auto object-cover min-h-[300px] bg-slate-100">
+        </div>
+        <p id="news-caption" class="text-sm text-slate-400 italic">
+          Dokumentasi kegiatan di MTs Al Hidayah Wattaqwa.
+        </p>
+      </div>
+
+      <!-- Isi Berita -->
+      <div id="news-content" class="prose prose-slate prose-lg max-w-none text-slate-700 leading-relaxed space-y-4">
+      </div>
+
+      <!-- Galeri Foto -->
+      <div id="gallery-section" class="hidden mt-12">
+        <h2 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-images text-indigo-500"></i>
+          <span>Galeri Foto</span>
+        </h2>
+        <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3"></div>
+      </div>
+
+      <!-- Lightbox -->
+      <div id="lightbox" class="fixed inset-0 bg-black/90 z-[999] hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300" onclick="closeLightbox()">&times;</button>
+        <button class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 px-2" onclick="event.stopPropagation(); moveLightbox(-1)">&#8249;</button>
+        <img id="lightbox-img" src="" class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl">
+        <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-gray-300 px-2" onclick="event.stopPropagation(); moveLightbox(1)">&#8250;</button>
+        <p id="lightbox-counter" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm"></p>
+      </div>
+    </article>
+
+    <!-- Loading State -->
+    <div id="loading-state" class="py-20 text-center">
+      <div class="inline-block w-10 h-10 border-4 border-slate-100 border-t-indigo-600 rounded-full animate-spin mb-4"></div>
+      <p class="text-slate-400 font-medium">Menyiapkan berita untuk kamu...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-state" class="hidden py-20 text-center">
+      <div class="text-red-400 text-5xl mb-4">☹️</div>
+      <h2 class="text-2xl font-bold mb-2">Berita Tidak Ditemukan</h2>
+      <p class="text-slate-500 mb-8">Link ini mungkin salah atau berita sudah dihapus.</p>
+      <a href="index.html" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-indigo-700 transition">Kembali ke Beranda</a>
+    </div>
+  </main>
+
+  <footer class="bg-slate-50 border-t border-slate-100 py-12 mt-20">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <img src="images/logo.jpg" class="w-12 h-12 rounded-full mx-auto mb-4 border shadow-sm">
+      <p class="text-slate-500 text-sm">© 2024 MTs Al Hidayah Wattaqwa. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/site-config.js"></script>
+  <script src="/detail-berita-load.js"></script>
+</body>
+</html>
